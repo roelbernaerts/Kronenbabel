@@ -1,0 +1,7 @@
+{
+  "name": "Kronenbabel",
+  "description": "Real-time bidirectional translation bridge for landlords and tenants in Antwerp.",
+  "requestFramePermissions": [
+    "microphone"
+  ]
+}
