@@ -82,9 +82,12 @@ const TranslatorSession: React.FC<TranslatorSessionProps> = ({ targetLanguage, o
 
     const startSession = async () => {
       try {
-        if (!process.env.API_KEY) {
-          throw new Error("API Key not found in environment.");
-        }
+      const apiKey = import.meta.env.VITE_GOOGLE_API_KEY as string;
+
+if (!apiKey) {
+  throw new Error("API Key not found in environment.");
+}
+
 
         // 1. Get Microphone Stream FIRST
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
@@ -140,7 +143,8 @@ const TranslatorSession: React.FC<TranslatorSessionProps> = ({ targetLanguage, o
         setStatusMessage("Connecting to Server...");
 
         // 5. Connect to Gemini Live
-        const ai = new GoogleGenAI({ apiKey: process.env.API_KEY });
+     const ai = new GoogleGenAI({ apiKey });
+
         
         sessionPromiseRef.current = ai.live.connect({
           model: 'gemini-2.5-flash-native-audio-preview-09-2025',
