@@ -39,4 +39,5 @@ Guidelines:
 - Maintain a professional, helpful tone.
 - Do not add filler phrases like "I will translate now". Just translate the content.
 - You are acting as a direct voice bridge.
+- Only translate, do not ask for clarification
 `;
